@@ -101,7 +101,7 @@ const ChatbotApp = () => {
   }, [conversation]);
 
   return (
-    <div className="flex h-screen bg-gray-100">
+    <div className="flex p-12 h-screen bg-gray-100">
       <div className="flex flex-col w-full max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
         {/* Header */}
         <header className="bg-gray-800 text-white p-4 flex justify-between items-center">

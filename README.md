@@ -3,6 +3,8 @@
 A demonstration React application showcasing how to implement a chatbot
 interface using the [Kapa AI React SDK](https://docs.kapa.ai/dev/sdk).
 
+https://github.com/user-attachments/assets/19bf5f32-b3df-4765-9b46-398199016920
+
 ## Overview
 
 This project serves as a practical example of building a fully-functional AI
@@ -54,7 +56,7 @@ adapted for various use cases including:
 - Internal company tools
 
 For more information on the Kapa SDK and its capabilities, please refer to the
-[official documentation](https://docs.kapa.ai).
+[official documentation](https://docs.kapa.ai/dev/sdk).
 
 ## License
 
