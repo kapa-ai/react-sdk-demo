@@ -7,6 +7,7 @@ import {
   Copy,
   Trash2,
   MessageSquarePlus,
+  ExternalLink,
 } from "lucide-react";
 import * as marked from "marked";
 import { useChat } from "@kapaai/react-sdk";
@@ -91,9 +92,6 @@ const ChatbotApp = () => {
     }
   };
 
-  const toggleComment = (qaId) => {
-    setShowCommentId(showCommentId === qaId ? null : qaId);
-  };
 
   // Scroll to bottom when new messages arrive
   useEffect(() => {
@@ -197,7 +195,7 @@ const ChatbotApp = () => {
                             </button>
                             <button
                               className="p-1 rounded ml-1 hover:bg-gray-300 flex items-center copy-btn"
-                              onClick={(event) => handleCopyText(qa.answer)}
+                              onClick={() => handleCopyText(qa.answer)}
                               aria-label="Copy message"
                             >
                               <Copy size={14} />
@@ -213,6 +211,32 @@ const ChatbotApp = () => {
                           questionAnswerId={qa.id}
                           onClose={() => setShowCommentId(null)}
                         />
+                      )}
+
+                      {/* Sources section */}
+                      {qa.sources && qa.sources.length > 0 && (
+                        <div className="mt-4 pt-4 border-t border-gray-200">
+                          <h4 className="text-xs font-semibold text-gray-600 mb-2">Sources</h4>
+                          <div className="space-y-2">
+                            {qa.sources.map((source, sourceIndex) => (
+                              <a
+                                key={sourceIndex}
+                                href={source.source_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-start gap-2 text-xs text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded p-2 transition-colors"
+                              >
+                                <ExternalLink size={14} className="flex-shrink-0 mt-0.5" />
+                                <div className="flex-1">
+                                  <div className="font-medium">{source.title}</div>
+                                  {source.subtitle && source.subtitle !== source.title && (
+                                    <div className="text-gray-500">{source.subtitle}</div>
+                                  )}
+                                </div>
+                              </a>
+                            ))}
+                          </div>
+                        </div>
                       )}
                     </div>
                   </div>
